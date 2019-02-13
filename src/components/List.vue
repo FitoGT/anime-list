@@ -1,9 +1,17 @@
 <template>
     <div class="row">
         <div class="col-sm-12">
-            <ul class="list-group list-group">
-                <li v-for="(anime, i) in sliced" :key="i" class="list-group-item">
-                    <p>{{anime.title}}</p>
+            <ul class="list-unstyled">
+                <li v-for="(anime, i) in sliced" :key="i">
+                     <div class="card flex-row">
+                        <div class="card-header border-0">
+                            <img :src="anime.image_url" alt="">
+                        </div>
+                        <div class="card-block px-2">
+                            <h4 class="card-title">{{anime.title}}</h4>
+                            <p class="card-text" >{{anime.synopsis}}</p>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -23,11 +31,9 @@ export default {
     },
     props: ['animes'],
     mounted() {
-      // track scroll event
       this.scroll();
     },
     computed: {
-      // slice the array of data to display
       sliced() {
          return this.animes.slice(0, this.display);
       },    
