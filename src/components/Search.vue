@@ -21,7 +21,7 @@ export default {
     methods:{
         search(){
             this.$emit('searchedAnime',[]);
-            let uri = `http://localhost:4000/anime/${this.anime}/1`;
+            let uri = `https://anime-api-node.herokuapp.com/anime/${this.anime}/1`;
             this.axios.get(uri).then((response) => {
                 this.$emit('searchedAnime',response.data.results);
             });
