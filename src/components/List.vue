@@ -72,7 +72,10 @@ export default {
                 });
             })
             .catch(function (error) {
-                console.log(error);
+                self.$swal({
+                    type: 'error',
+                    title: 'Cant add anime'
+                });
             });
         }
     }  
